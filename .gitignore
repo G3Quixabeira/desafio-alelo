@@ -1,0 +1,106 @@
+### macOS ###
+# Icone
+Icon
+
+# Miniaturas
+._*
+
+# Pastas ocultas do sistema
+.AppleDouble
+.LSOverride
+.DS_Store
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Pastas gerados por compartilhamento remoto
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Windows ###
+# Miniaturas
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Lixo
+*.stackdump
+
+# Configuracoes de pasta
+[Dd]esktop.ini
+
+# Lixeira
+$RECYCLE.BIN/
+
+# Arquivos de instalacao
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Atalhos
+*.lnk
+
+#
+
+### Java ###
+# Pastas e arquivos da IDE
+.apt_generated
+.factorypath
+.settings
+.springBeans
+.sts4-cache
+.project
+.classpath
+factoryConfiguration.json
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+.vscode/
+*.iml
+.idea
+*.iws
+*.ipr
+
+# Classe compilada
+*.class
+
+# Arquivo de log
+*.log
+
+# BlueJ
+*.ctxt
+
+# MTJ
+.mtj.tmp/
+
+# Packages #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Logs de maquina virtual
+hs_err_pid*
+
+## Target
+target/
+out/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
