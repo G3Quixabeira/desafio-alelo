@@ -16,8 +16,6 @@ O projeto está configurado para build totalmente automatizada via Maven e pode 
 Build via jar
 >mvn package
 
->java -jar ws-desafioalelo-jar-with-dependencies
-
 Build para deploy em servidor de aplicação
 >mvn compile war:war
 
@@ -102,13 +100,11 @@ O Web Service utiliza o padrão REST de retorno para o processamento das requisi
 **Tarefas** /tarefas [GET/POST/PUT/DELETE]
 >[GET] Retorna lista de tarefas
 
->[POST] Adiciona uma tarefa
+>[POST] Adiciona uma lista de tarefas
 ```json
 {
   "descricao": "Tomar água",
-  "usuario": {
-    "id": 1
-  }
+  "usuarioId": 1
 }
 ```
 
@@ -119,9 +115,8 @@ O Web Service utiliza o padrão REST de retorno para o processamento das requisi
   "dataPrevista": "2021-01-20T20:16:45.093Z",
   "id": 1,
   "status": 1,
-  "usuario": {
-    "id": 1
-  }
+  "listaId": 1,
+  "usuarioId": 1
 }
 ```
 
@@ -134,9 +129,7 @@ O Web Service utiliza o padrão REST de retorno para o processamento das requisi
 ```json
 {
   "descricao": "Compras",
-  "usuario": {
-    "id": 1
-  }
+  "usuarioId": 1
 }
 ```
 
@@ -144,9 +137,7 @@ O Web Service utiliza o padrão REST de retorno para o processamento das requisi
 ```json
 {
   "descricao": "Sonhos",
-  "usuario": {
-    "id": 1
-  }
+  "usuarioId": 1
 }
 ```
 
