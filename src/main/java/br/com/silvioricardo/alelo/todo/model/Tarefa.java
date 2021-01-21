@@ -22,12 +22,10 @@ public class Tarefa {
     private Long id;
 
     @ApiModelProperty(value = "Id do Usuário")
-    @NotBlank(message = "Informe o id do usuário")
-    @OneToOne
-    private Usuario usuario;
+    private Long usuarioId;
 
     @ApiModelProperty(value = "Descrição")
-    @NotBlank(message = "O nome do usuário deve ser informado")
+    @NotBlank(message = "A descrição deve ser informada")
     private String descricao;
 
     @ApiModelProperty(value = "Data Prevista para conclusão")

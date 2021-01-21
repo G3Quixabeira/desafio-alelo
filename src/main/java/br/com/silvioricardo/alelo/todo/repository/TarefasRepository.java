@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface TarefasRepository extends JpaRepository<Tarefa,Long> {
     Tarefa findById(long id);
 
-    @Query("select tarefas from Tarefa tarefas where tarefas.usuario.id=:usuarioId")
+    @Query("select tarefas from Tarefa tarefas where tarefas.usuarioId=:usuarioId")
     Optional<Tarefa>findByUsuarioId(Long usuarioId);
 }
