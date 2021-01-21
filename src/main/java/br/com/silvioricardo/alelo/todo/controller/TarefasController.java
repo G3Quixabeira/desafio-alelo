@@ -18,6 +18,10 @@ import java.util.List;
 import static org.springframework.http.ResponseEntity.noContent;
 import static org.springframework.http.ResponseEntity.ok;
 
+/**
+ * Controller com o CRUD para os endpoints das Tarefas
+ *
+ */
 @RestController
 @AllArgsConstructor
 @Api(value = "CRUD para Lista de Tarefas")
@@ -27,6 +31,16 @@ public class TarefasController {
     private final TarefasService tarefasService;
     private final TarefasRepository tarefasRepository;
 
+    /**
+     * Endpoint que retorna a lista de tarefas
+     *
+     * STATUS:
+     *  200 Sucesso
+     *  204 Sem conteúdo
+     *  500 Erro ao processar a solicitação
+     *
+     * @return JSON tarefas
+     */
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Retorna a lista de tarefas"),
         @ApiResponse(code = 204, message = "Nenhuma tarefa cadastrada"),
@@ -43,6 +57,16 @@ public class TarefasController {
         return ok(listaTarefas);
     }
 
+    /**
+     * Endpoint que retorna o tarefa com base na id
+     *
+     * STATUS:
+     *  200 Sucesso
+     *  404 Não encontrado
+     *  500 Erro ao processar a solicitação
+     *
+     * @return JSON tarefas
+     */
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Retorna a tarefa informado com base na Id"),
             @ApiResponse(code = 404, message = "Não foi encontrado tarefa com a Id informada"),
@@ -54,9 +78,22 @@ public class TarefasController {
         return ok(tarefasService.findById(id));
     }
 
+    /**
+     * Endpoint para inserção de uma nova tarefa
+     *
+     * STATUS:
+     *  (201) Criado
+     *  (400) Requisição mal formatada
+     *  (409) Conflito, entidade já existe na base de dados
+     *  (500) Erro interno no servidor
+     *
+     * @param request String com o json da requisição
+     * @return Response STATUS
+     */
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Tarefa cadastrada com sucesso"),
             @ApiResponse(code = 400, message = "Requisição mal formatada"),
+            @ApiResponse(code = 409, message = "Conflito, entidade já existe na base de dados"),
             @ApiResponse(code = 500, message = "Erro ao processar a requisição"),
     })
     @PostMapping
@@ -66,8 +103,21 @@ public class TarefasController {
         return new ResponseEntity<>(novaTarefa, HttpStatus.CREATED);
     }
 
+    /**
+     * Endpoint para atualização do usuário com base na Id recebida
+     *
+     * STATUS:
+     *  (200) Sucesso
+     *  (204) Sem conteúdo para resposta
+     *  (404) Registro não encontrado ou inválido
+     *
+     * @param RequestBody Tarefa Json da requisição
+     * @param Long id do tarefa a ser atualizado
+     * @return Response STATUS
+     */
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Tarefa atualizada com sucesso"),
+            @ApiResponse(code = 204, message = "Sem conteúdo para resposta"),
             @ApiResponse(code = 400, message = "Requisição mal formatada"),
             @ApiResponse(code = 500, message = "Erro ao processar a requisição"),
     })
@@ -78,6 +128,16 @@ public class TarefasController {
         return new ResponseEntity<>(tarefaAtualizada, HttpStatus.CREATED);
     }
 
+    /**
+     * Endpoint para remoção de um registro
+     *
+     * STATUS:
+     *  (200) Sucesso
+     *  (404) Registro não encontrado ou inválido
+     *
+     * @param id Id da tarefa
+     * @return Response STATUS
+     */
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Tarefa apagada com sucesso"),
             @ApiResponse(code = 404, message = "Não foi encontrado a tarefa para a Id informada"),

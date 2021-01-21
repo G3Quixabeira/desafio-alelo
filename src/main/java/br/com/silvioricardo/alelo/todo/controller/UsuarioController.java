@@ -17,6 +17,10 @@ import java.util.List;
 
 import static org.springframework.http.ResponseEntity.*;
 
+/**
+ * Controller com o CRUD para os endpoints do Usuario
+ *
+ */
 @RestController
 @AllArgsConstructor
 @Api(value = "CRUD para Usuarios")
@@ -26,6 +30,16 @@ public class UsuarioController {
     private final UsuarioService usuarioService;
     private final UsuarioRepository usuarioRepository;
 
+    /**
+     * Endpoint que retorna a lista de usuários
+     *
+     * STATUS:
+     *  200 Sucesso
+     *  204 Sem conteúdo
+     *  500 Erro ao processar a solicitação
+     *
+     * @return JSON usuario
+     */
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "Retorna a lista de usuários"),
         @ApiResponse(code = 204, message = "Nenhum usuário cadastrado"),
@@ -42,6 +56,16 @@ public class UsuarioController {
         return ok(listaUsuarios);
     }
 
+    /**
+     * Endpoint que retorna o usuário com base na id
+     *
+     * STATUS:
+     *  200 Sucesso
+     *  404 Não encontrado
+     *  500 Erro ao processar a solicitação
+     *
+     * @return JSON usuario
+     */
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Retorna o usuário informado com base na Id"),
             @ApiResponse(code = 404, message = "Não foi encontrado usuário com a Id informada"),
@@ -53,9 +77,22 @@ public class UsuarioController {
         return ok(usuarioService.findById(id));
     }
 
+    /**
+     * Endpoint para inserção de novo usuario
+     *
+     * STATUS:
+     *  (201) Criado
+     *  (400) Requisição mal formatada
+     *  (409) Conflito, entidade já existe na base de dados
+     *  (500) Erro interno no servidor
+     *
+     * @param request String com o json da requisição
+     * @return Response STATUS
+     */
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "Usuário cadastrado com sucesso"),
             @ApiResponse(code = 400, message = "Requisição mal formatada"),
+            @ApiResponse(code = 409, message = "Requisição mal formatada"),
             @ApiResponse(code = 500, message = "Erro ao processar a requisição"),
     })
     @PostMapping
@@ -65,6 +102,18 @@ public class UsuarioController {
         return new ResponseEntity<>(novoUsuario, HttpStatus.CREATED);
     }
 
+    /**
+     * Endpoint para atualização do usuário com base na Id recebida
+     *
+     * STATUS:
+     *  (200) Sucesso
+     *  (204) Sem conteúdo para resposta
+     *  (404) Registro não encontrado ou inválido
+     *
+     * @param RequestBody Usuario Json da requisição
+     * @param Long id do Usuário a ser atualizado
+     * @return Response STATUS
+     */
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Usuário atualizado com sucesso"),
             @ApiResponse(code = 400, message = "Requisição mal formatada"),
@@ -82,6 +131,17 @@ public class UsuarioController {
         return new ResponseEntity<>(usuarioAtualizado, HttpStatus.CREATED);
     }
 
+    /**
+     * Endpoint para remoção de um registro
+     *
+     * STATUS:
+     *  (200) Sucesso
+     *  (404) Registro não encontrado ou inválido
+     *  (500) Erro ao processar a solicitação
+     *
+     * @param id Id do usuario
+     * @return Response STATUS
+     */
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Usuário apagado com sucesso"),
             @ApiResponse(code = 404, message = "Não foi encontrado usuário para a Id informada"),
