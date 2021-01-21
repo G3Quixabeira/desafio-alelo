@@ -87,7 +87,6 @@ public class TarefasController {
      *  (409) Conflito, entidade já existe na base de dados
      *  (500) Erro interno no servidor
      *
-     * @param request String com o json da requisição
      * @return Response STATUS
      */
     @ApiResponses(value = {
@@ -104,15 +103,13 @@ public class TarefasController {
     }
 
     /**
-     * Endpoint para atualização do usuário com base na Id recebida
+     * Endpoint para atualização do tarefa com base na Id recebida
      *
      * STATUS:
      *  (200) Sucesso
      *  (204) Sem conteúdo para resposta
      *  (404) Registro não encontrado ou inválido
      *
-     * @param RequestBody Tarefa Json da requisição
-     * @param Long id do tarefa a ser atualizado
      * @return Response STATUS
      */
     @ApiResponses(value = {
@@ -123,7 +120,8 @@ public class TarefasController {
     })
     @PutMapping("/{id}")
     @ApiOperation(value = "Atualiza a tarefa")
-    public ResponseEntity<Tarefa> atualizar(@Valid @RequestBody Tarefa tarefa){
+    public ResponseEntity<Tarefa> atualizar(@Valid @RequestBody Tarefa tarefa, @PathVariable Long id){
+        tarefa.setId(id);
         Tarefa tarefaAtualizada = tarefasService.update(tarefa);
         return new ResponseEntity<>(tarefaAtualizada, HttpStatus.CREATED);
     }

@@ -87,7 +87,6 @@ public class ListaController {
      *  (409) Conflito, entidade já existe na base de dados
      *  (500) Erro interno no servidor
      *
-     * @param request String com o json da requisição
      * @return Response STATUS
      */
     @ApiResponses(value = {
@@ -104,15 +103,13 @@ public class ListaController {
     }
 
     /**
-     * Endpoint para atualização do usuário com base na Id recebida
+     * Endpoint para atualização do lista com base na Id recebida
      *
      * STATUS:
      *  (200) Sucesso
      *  (204) Sem conteúdo para resposta
      *  (404) Registro não encontrado ou inválido
      *
-     * @param RequestBody Lista Json da requisição
-     * @param Long id do lista a ser atualizado
      * @return Response STATUS
      */
     @ApiResponses(value = {
@@ -123,7 +120,8 @@ public class ListaController {
     })
     @PutMapping("/{id}")
     @ApiOperation(value = "Atualiza a lista")
-    public ResponseEntity<Lista> atualizar(@Valid @RequestBody Lista lista){
+    public ResponseEntity<Lista> atualizar(@Valid @RequestBody Lista lista, @PathVariable Long id){
+        lista.setId(id);
         Lista listaAtualizada = listasService.update(lista);
         return new ResponseEntity<>(listaAtualizada, HttpStatus.CREATED);
     }
