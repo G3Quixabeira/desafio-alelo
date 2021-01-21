@@ -9,6 +9,9 @@ Build via jar
 Build para deploy em servidor de aplicação
 >mvn compile war:war
 
+### Swagger
+http://localhost:8080/swagger-ui.html
+
 ### Payload Json para Testes
 O Web Service utiliza o padrão REST de retorno para o processamento das requisições enviadas:
 
