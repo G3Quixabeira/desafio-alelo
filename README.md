@@ -31,6 +31,10 @@ Localizada em ['doc/documentacao.pdf'](doc/documentacao.pdf).
 
 http://localhost:8080/swagger-ui.html
 
+### Postman Collection
+
+https://www.getpostman.com/collections/467e821404278e92a550
+
 ### Modelagem
 Localizada em ['doc/modelagem.png'](doc/modelagem.png) ou neste arquivo no item Modelo.
 
