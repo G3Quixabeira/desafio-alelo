@@ -21,9 +21,7 @@ public class Lista {
     private Long id;
 
     @ApiModelProperty(value = "Id do Usuário")
-    @NotBlank(message = "Informe o id do usuário")
-    @OneToOne
-    private Usuario usuario;
+    private Long usuarioId;
 
     @ApiModelProperty(value = "Nome da lista")
     @NotBlank(message = "O nome da lista não deve ser vazia")
