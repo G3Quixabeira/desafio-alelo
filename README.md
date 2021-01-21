@@ -19,6 +19,11 @@ Build via jar
 Build para deploy em servidor de aplicação
 >mvn compile war:war
 
+Deploy via Docker
+> mvn package
+> docker build -t silvioricardo/desafio-alelo:1.0-SNAPSHOT .
+> docker run -d -p 8080:8080 silvioricardo/desafio-alelo:1.0-SNAPSHOT
+
 ### Documentação Técnica
 Localizada em ['doc/documentacao.pdf'](doc/documentacao.pdf).
 
