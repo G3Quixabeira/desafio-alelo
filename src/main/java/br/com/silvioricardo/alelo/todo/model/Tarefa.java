@@ -24,6 +24,9 @@ public class Tarefa {
     @ApiModelProperty(value = "Id do Usuário")
     private Long usuarioId;
 
+    @ApiModelProperty(value = "Id da Lista")
+    private Long listaId;
+
     @ApiModelProperty(value = "Descrição")
     @NotBlank(message = "A descrição deve ser informada")
     private String descricao;
