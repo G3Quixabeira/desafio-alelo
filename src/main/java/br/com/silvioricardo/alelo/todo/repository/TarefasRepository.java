@@ -1,7 +1,6 @@
 package br.com.silvioricardo.alelo.todo.repository;
 
 import br.com.silvioricardo.alelo.todo.model.Tarefa;
-import br.com.silvioricardo.alelo.todo.model.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
