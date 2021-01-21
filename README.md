@@ -24,8 +24,13 @@ Build para deploy em servidor de aplicação
 ### Documentação Técnica
 Localizada em ['doc/documentacao.pdf'](doc/documentacao.pdf).
 
+### Swagger
+
+http://localhost:8080/swagger-ui.html
+
 ### Modelagem
 Localizada em ['doc/modelagem.png'](doc/modelagem.png) ou neste arquivo no item Modelo.
+
 
 ### Base de dados
 O banco de dados utilizado no projeto é H2, a conexão por meio de pool e configurado para persistência em arquivo local em 'data/Banco.db', utilizando JPA.
@@ -57,9 +62,6 @@ Build via jar
 
 Build para deploy em servidor de aplicação
 >mvn compile war:war
-
-### Swagger
-http://localhost:8080/swagger-ui.html
 
 ### Payload Json para Testes
 O Web Service utiliza o padrão REST de retorno para o processamento das requisições enviadas:
