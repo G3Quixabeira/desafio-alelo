@@ -21,7 +21,9 @@ Build para deploy em servidor de aplicação
 
 Deploy via Docker
 > mvn package
+
 > docker build -t silvioricardo/desafio-alelo:1.0-SNAPSHOT .
+
 > docker run -d -p 8080:8080 silvioricardo/desafio-alelo:1.0-SNAPSHOT
 
 ### Documentação Técnica
